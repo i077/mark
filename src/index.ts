@@ -1,12 +1,11 @@
 import { Router } from 'itty-router'
 import { createLink } from './handlers/createLink'
 import { getLink } from './handlers/getLink'
-import { landingPage } from './handlers/landingPage'
 
 const router = Router()
 
 // Landing page
-router.get('/', landingPage)
+router.get('/', () => new Response('Provide a key in the URL.', { status: 400 }))
 
 router.post('/new', createLink)
 
@@ -19,11 +18,9 @@ router.all('*', () => new Response('Not found.', { status: 404 }))
 
 addEventListener('fetch', (event) => {
   event.respondWith(
-    router
-      .handle(event.request, event)
-      .catch((err) => {
-        console.log(err)
-        return new Response('Internal server error.', { status: 500 })
-      }),
+    router.handle(event.request, event).catch((err) => {
+      console.log(err)
+      return new Response('Internal server error.', { status: 500 })
+    }),
   )
 })
