@@ -9,7 +9,7 @@
     "lint": "eslint --max-warnings=0 src && prettier --check '*.{json,js}' 'src/**/*.{js,ts}' 'test/**/*.{js,ts}'",
     "test": "jest --config jestconfig.json --verbose"
   },
-  "author": "author",
+  "author": "i077",
   "license": "MIT",
   "eslintConfig": {
     "root": true,
