@@ -3,6 +3,7 @@ import { customAlphabet } from 'nanoid'
 
 // This gets bound to the KV namespace
 declare const MARKS: KVNamespace
+declare const AUTHKEY: string
 
 // base62 alphamet used to generate random keys
 const ALPHABET = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
@@ -10,8 +11,11 @@ const nanoid = customAlphabet(ALPHABET, 4)
 
 export const createLink = async (request: Request): Promise<Response> => {
   const { host } = new URL(request.url)
-  const { url } = await request.json?.()
-  
+  const { url, authkey } = await request.json?.()
+
+  // Gate endpoint with an authentication key
+  if (authkey !== AUTHKEY) return new Response('Invalid authkey.', { status: 403 })
+
   // Validate URL
   if (url == null) return new Response('No URL provided.', { status: 400 })
   if (!/^https?:\/\//.test(url)) return new Response('Invalid URL.', { status: 400 })
@@ -21,7 +25,7 @@ export const createLink = async (request: Request): Promise<Response> => {
   do {
     newKey = nanoid()
   } while ((await MARKS.get(newKey)) !== null)
-  
+
   // Store the link in KV
   await MARKS.put(newKey, url)
 
