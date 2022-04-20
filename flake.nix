@@ -11,18 +11,31 @@
     };
   };
 
-  outputs = { self, nixpkgs, devshell, utils, ... }: utils.lib.eachDefaultSystem (system: let
-    pkgs = import nixpkgs {
-      inherit system;
-      overlays = [ devshell.overlay ];
-    };
-  in {
-    devShell = pkgs.devshell.mkShell {
-      name = "mark-devshell";
-      packages = with pkgs; [
-        wrangler
-        nodePackages.pnpm
-      ];
-    };
-  });
+  outputs = { self, nixpkgs, devshell, utils, ... }:
+    utils.lib.eachDefaultSystem (system:
+      let
+        pkgs = import nixpkgs {
+          inherit system;
+          overlays = [ devshell.overlay ];
+        };
+      in {
+        devShell = pkgs.devshell.mkShell {
+          name = "mark-devshell";
+
+          commands = [
+            {
+              name = "develop";
+              command = "wrangler dev";
+              help = "Start a local server for developing worker";
+            }
+            {
+              name = "publish";
+              command = "wrangler publish --env prod";
+              help = "Publish worker to CloudFlare";
+            }
+          ];
+
+          packages = with pkgs; [ wrangler nodePackages.pnpm nodejs-17_x ];
+        };
+      });
 }
