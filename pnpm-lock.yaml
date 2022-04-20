@@ -9,6 +9,7 @@ specifiers:
   eslint: ^7.21.0
   eslint-config-prettier: ^8.1.0
   eslint-config-typescript: ^3.0.0
+  itty-router: ^2.6.1
   jest: ^27.0.1
   prettier: ^2.3.0
   service-worker-mock: ^2.0.5
@@ -17,6 +18,9 @@ specifiers:
   typescript: ^4.3.2
   webpack: ^5.38.1
   webpack-cli: ^4.7.0
+
+dependencies:
+  itty-router: 2.6.1
 
 devDependencies:
   '@cloudflare/workers-types': 3.5.1
@@ -2183,6 +2187,10 @@ packages:
       html-escaper: 2.0.2
       istanbul-lib-report: 3.0.0
     dev: true
+
+  /itty-router/2.6.1:
+    resolution: {integrity: sha512-l9gxWe5TOLUESYnBn85Jxd6tIZLWdRX5YKkHIBfSgbNQ7UFPNUGuWihRV+LlEbfJJIzgLmhwAbaWRi5yWJm8kg==}
+    dev: false
 
   /jest-changed-files/27.5.1:
     resolution: {integrity: sha512-buBLMiByfWGCoMsLLzGUUSpAmIAGnbR2KJoMN10ziLhOLvP4e0SlypHnAel8iqQXTrcbmfEY9sSqae5sgUsTvw==}
