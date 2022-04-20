@@ -12,7 +12,7 @@ router.post('/new', createLink)
 
 router.get('/:key', getLink)
 // Only GETs allowed for keys
-router.all('/:key', async () => new Response('Method not allowed.', { status: 405 }))
+router.all('/:key', () => new Response('Method not allowed.', { status: 405 }))
 
 // 404 for uhhhhhh everything else
 router.all('*', () => new Response('Not found.', { status: 404 }))
@@ -21,6 +21,9 @@ addEventListener('fetch', (event) => {
   event.respondWith(
     router
       .handle(event.request, event)
-      .catch(() => new Response('Internal server error.', { status: 500 })),
+      .catch((err) => {
+        console.log(err)
+        return new Response('Internal server error.', { status: 500 })
+      }),
   )
 })
