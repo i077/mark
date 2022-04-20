@@ -30,7 +30,7 @@
             }
             {
               name = "publish";
-              command = "wrangler publish --env prod";
+              command = "wrangler publish";
               help = "Publish worker to CloudFlare";
             }
           ];
