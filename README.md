@@ -27,7 +27,9 @@ This only allows for around 15 million links, but that should be plenty for one 
 ## How it works
 
 Note that there is no frontend or GUI, this is meant to be as simple as possible.
-It's pretty easy to send POST requests from the command line, and this can be easily [scripted](https://asciinema.org/a/k8BMSvVxKy1W62YOlNupukyrS).
+It's pretty easy to send POST requests from the command line, and this can be easily scripted.
+Below is a script I made for myself to make managing links easier:
+[![asciicast](https://asciinema.org/a/k8BMSvVxKy1W62YOlNupukyrS.svg)](https://asciinema.org/a/k8BMSvVxKy1W62YOlNupukyrS)
 
 The backend is run by CloudFlare Workers, and links are stored in
 [Workers KV](https://www.cloudflare.com/products/workers-kv/), a global eventually-consistent key-value store.
