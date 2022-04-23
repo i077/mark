@@ -3,5 +3,8 @@ node_modules
 transpiled
 /.idea/
 
+# Secrets
+/wrangler.toml
+
 # macOS
 .DS_Store

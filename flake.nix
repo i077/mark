@@ -33,6 +33,11 @@
               command = "wrangler publish";
               help = "Publish worker to CloudFlare";
             }
+            {
+              name = "secrets";
+              command = "op inject -i $PRJ_ROOT/wranger.toml.tpl -o $PRJ_ROOT/wrangler.toml";
+              help = "Inject secrets from 1Password into wrangler.toml";
+            }
           ];
 
           packages = with pkgs; [ wrangler nodePackages.pnpm nodejs-17_x ];
