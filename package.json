@@ -10,7 +10,7 @@
     "test": "jest --config jestconfig.json --verbose"
   },
   "author": "i077",
-  "license": "MIT",
+  "license": "AGPLv3",
   "eslintConfig": {
     "root": true,
     "extends": [
