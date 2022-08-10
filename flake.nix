@@ -40,7 +40,7 @@
             }
           ];
 
-          packages = with pkgs; [ wrangler nodePackages.pnpm nodejs-17_x ];
+          packages = with pkgs; [ wrangler nodePackages.pnpm nodejs_latest ];
         };
       });
 }
