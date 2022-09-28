@@ -35,7 +35,7 @@
             }
             {
               name = "secrets";
-              command = "op inject -i $PRJ_ROOT/wranger.toml.tpl -o $PRJ_ROOT/wrangler.toml";
+              command = "op inject -i $PRJ_ROOT/wrangler.toml.tpl -o $PRJ_ROOT/wrangler.toml";
               help = "Inject secrets from 1Password into wrangler.toml";
             }
           ];
