@@ -5,10 +5,6 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     devshell.url = "github:numtide/devshell";
     utils.url = "github:numtide/flake-utils";
-    flake-compat = {
-      url = "github:edolstra/flake-compat";
-      flake = false;
-    };
   };
 
   outputs = { self, nixpkgs, devshell, utils, ... }:
