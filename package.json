@@ -19,17 +19,17 @@
     ]
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^3.0.0",
-    "@types/service-worker-mock": "^2.0.1",
-    "prettier": "^2.3.0",
+    "@cloudflare/workers-types": "^3.19.0",
+    "@types/service-worker-mock": "^2.0.2",
+    "prettier": "^2.8.8",
     "service-worker-mock": "^2.0.5",
-    "ts-loader": "^9.2.2",
-    "typescript": "^4.3.2",
-    "webpack": "^5.38.1",
-    "webpack-cli": "^4.7.0"
+    "ts-loader": "^9.4.4",
+    "typescript": "^4.9.5",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^4.10.0"
   },
   "dependencies": {
-    "itty-router": "^2.6.1",
-    "nanoid": "^3.3.3"
+    "itty-router": "^2.6.6",
+    "nanoid": "^3.3.6"
   }
 }
