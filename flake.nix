@@ -7,7 +7,7 @@
     utils.url = "github:numtide/flake-utils";
   };
 
-  outputs = { self, nixpkgs, devshell, utils, ... }:
+  outputs = { nixpkgs, devshell, utils, ... }:
     utils.lib.eachDefaultSystem (system:
       let
         pkgs = import nixpkgs {
@@ -36,7 +36,7 @@
             }
           ];
 
-          packages = with pkgs; [ wrangler nodePackages.pnpm nodejs_latest ];
+          packages = with pkgs; [ wrangler pnpm nodejs_latest ];
         };
       });
 }
